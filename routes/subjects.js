@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 /* GET Subjects> */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+    const {db} = req.app.locals;
+    db.collection('subjects').find().toArray(
+        (err,subjects) => res.json(subjects));
 });
 
 /* GET Subjects/id */
