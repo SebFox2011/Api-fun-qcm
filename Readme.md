@@ -32,3 +32,4 @@ MongoCLient.connect('mongodb://'+process.env.DB_HOST+':'+process.env.DB_PORT,{
     })
     .catch(err=>console.log(err))
     
+Pour appeler l'api : http://localhost:8000/subjects

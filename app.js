@@ -18,6 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/subjects',subjectsRouter)
+app.use('/subjects', subjectsRouter);
 
 module.exports = app;
