@@ -5,10 +5,10 @@ ObjectID = require('mongodb').ObjectID;
 /* GET Subjects/id */
 router.get('/:id', function(req, res, next) {
     const {db} = req.app.locals;
+    const {id} = req.params;
     db.collection('subjects')
         .find({_id: new ObjectID(id)})
         .toArray((err,subjects) => res.json(subjects));
-    res.render('index', { title: 'Express' });
 });
 
 /* GET Subjects> */
@@ -16,6 +16,7 @@ router.get('/', function(req, res, next) {
     const {db} = req.app.locals;
     db.collection('subjects')
         .find()
+        .project({_id:1,title:1,questions:1})
         .toArray((err,subjects) => res.json(subjects));
 });
 
