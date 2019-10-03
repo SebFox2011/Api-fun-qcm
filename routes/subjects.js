@@ -36,7 +36,7 @@ router.post('/',(req,res) => {
     const {db} = req.app.locals;
     db.collection('subjects')
         .insertOne(req.body,
-            (err,subjects)=> res.json(response));
+            (err,response)=> res.json(response));
 });
 
 // Route pour supprimer une entrée
